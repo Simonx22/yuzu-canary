@@ -724,6 +724,7 @@ IHomeMenuFunctions::IHomeMenuFunctions() : ServiceFramework("IHomeMenuFunctions"
     RegisterHandlers(functions);
 }
 
+
 void IHomeMenuFunctions::GetPopFromGeneralChannelEvent(Kernel::HLERequestContext& ctx) {
     IPC::ResponseBuilder rb{ctx, 2};
     rb.Push(RESULT_SUCCESS);
