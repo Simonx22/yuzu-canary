@@ -85,6 +85,7 @@ private:
     void GetLibraryAppletLaunchableEvent(Kernel::HLERequestContext& ctx);
     void SetScreenShotImageOrientation(Kernel::HLERequestContext& ctx);
     void CreateManagedDisplayLayer(Kernel::HLERequestContext& ctx);
+	void IsSystemBufferSharingEnabled(Kernel::HLERequestContext& ctx);
     void SetScreenShotPermission(Kernel::HLERequestContext& ctx);
     void SetHandlesRequestToDisplay(Kernel::HLERequestContext& ctx);
 
