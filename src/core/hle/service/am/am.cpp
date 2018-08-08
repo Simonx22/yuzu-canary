@@ -139,7 +139,7 @@ ISelfController::ISelfController(std::shared_ptr<NVFlinger::NVFlinger> nvflinger
         {19, &ISelfController::SetScreenShotImageOrientation, "SetScreenShotImageOrientation"},
         {20, nullptr, "SetDesirableKeyboardLayout"},
         {40, &ISelfController::CreateManagedDisplayLayer, "CreateManagedDisplayLayer"},
-        {41, nullptr, "IsSystemBufferSharingEnabled"},
+        {41, &ISelfController::IsSystemBufferSharingEnabled, "IsSystemBufferSharingEnabled"},
         {42, nullptr, "GetSystemSharedLayerHandle"},
         {50, &ISelfController::SetHandlesRequestToDisplay, "SetHandlesRequestToDisplay"},
         {51, nullptr, "ApproveToDisplay"},
@@ -258,6 +258,12 @@ void ISelfController::SetScreenShotImageOrientation(Kernel::HLERequestContext& c
     IPC::ResponseBuilder rb{ctx, 2};
     rb.Push(RESULT_SUCCESS);
 
+    LOG_WARNING(Service_AM, "(STUBBED) called");
+}
+
+void ISelfController::IsSystemBufferSharingEnabled(Kernel::HLERequestContext& ctx) {
+    IPC::ResponseBuilder rb{ctx, 2};
+    rb.Push(RESULT_SUCCESS);
     LOG_WARNING(Service_AM, "(STUBBED) called");
 }
 
@@ -711,11 +717,17 @@ IHomeMenuFunctions::IHomeMenuFunctions() : ServiceFramework("IHomeMenuFunctions"
         {11, nullptr, "LockForeground"},
         {12, nullptr, "UnlockForeground"},
         {20, nullptr, "PopFromGeneralChannel"},
-        {21, nullptr, "GetPopFromGeneralChannelEvent"},
+        {21, &IHomeMenuFunctions::GetPopFromGeneralChannelEvent, "GetPopFromGeneralChannelEvent"},
         {30, nullptr, "GetHomeButtonWriterLockAccessor"},
         {31, nullptr, "GetWriterLockAccessorEx"},
     };
     RegisterHandlers(functions);
+}
+
+void IHomeMenuFunctions::GetPopFromGeneralChannelEvent(Kernel::HLERequestContext& ctx) {
+    IPC::ResponseBuilder rb{ctx, 2};
+    rb.Push(RESULT_SUCCESS);
+    LOG_WARNING(Service_AM, "(STUBBED) called");
 }
 
 void IHomeMenuFunctions::RequestToGetForeground(Kernel::HLERequestContext& ctx) {
